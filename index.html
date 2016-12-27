@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+<head>
+		<meta charset="UTF-8">
+		<title>Snow</title>
+        <style type="text/css">
+        canvas{
+            z-index:-1;
+            position: fixed;
+            display: block;
+        }
+        body{
+            background: #102a54;
+        }
+
+        .objects {
+        display:inline-block;
+        background-color: #FFF3CC;
+        border: #DFBC6A 1px solid;
+        width: 50px; 
+        height: 50px;
+        margin: 10px;
+        padding: 8px;
+        font-size: 18px;
+        text-align: center;
+        box-shadow: 2px 2px 2px #999;
+        cursor: move;
+        z-index: 2;
+        }
+        
+        #drop_zone {
+        background-color: #EEE; 
+        border: #999 1px solid;
+        width: 280px; 
+        height: 200px;
+        padding: 8px;
+        font-size: 18px;
+        }
+        </style>
+        <script src="snow.js"></script>
+        <script src="drag-drop.js"></script>
+</head>
+<body >
+    <canvas id="sky"></canvas>
+    <h1>Welcome to my Webpage</h1>
+
+<h2 id ="status"></h2>
+<h1>Drop Zone</h1>
+<div style="opacity:0.5" id="drop_zone" ondragenter="drag_enter(event)" ondrop="drag_drop(event)" ondragover="return false" ondragleave="drag_leave(event)" ></div>
+<div style="opacity:1;z-index:1" id="object1" class="objects" draggable="true" ondragstart="drag_start(event)" ondragend="drag_end(event)">object 1</div>
+<div id="object2" class="objects" draggable="true" ondragstart="drag_start(event)" ondragend="drag_end(event)">object 2</div>
+<div id="object3" class="objects" draggable="true" ondragstart="drag_start(event)" ondragend="drag_end(event)">object 3</div>
+<br>
+<button onclick="readDropZone()">Get Object Data</button>
+
+</body>
+</html>
